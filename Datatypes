@@ -1,38 +1,39 @@
-package javaProject1;
+package Prachi;
 
 public class Datatypes {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
-			byte num=10;
+		byte num=10;
 
-			short num1=4;
+		short num1=4;
 
-			int num2=30;
+		int num2=30;
 
-			long num3=1128;
+		long num3=1128;
 
-			char letter='s';
+		char letter='s';
 
-			double xy=11.08;
+		double xy=11.08;
 
-			boolean value=true;
+		boolean value=true;
 
 
-			System.out.println(num);
+		System.out.println(num);
 
-			System.out.println(num1);
+		System.out.println(num1);
 
-			System.out.println(num2);
+		System.out.println(num2);
 
-			System.out.println(num3);
+		System.out.println(num3);
 
-			System.out.println(letter);
+		System.out.println(letter);
 
-			System.out.println(xy);
+		System.out.println(xy);
 
-			System.out.println(value);
+		System.out.println(value);
 
-			}
+	}
 
 }

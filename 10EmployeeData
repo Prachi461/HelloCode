@@ -1,0 +1,51 @@
+package Variables;
+
+class Employee {
+    // Instance variables to store employee details
+    int id;
+    String name;
+    int age;
+    double salary;
+
+    // Constructor to initialize employee details
+    public Employee(int id, String name, int age, double salary) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+    }
+
+    // Method to display employee information
+    public void displayInfo() {
+        System.out.println("ID: " + id + ", Name: " + name + ", Age: " + age + ", Salary: $" + salary);
+    }
+}
+
+public class Employee10data {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        // Create an array to hold 10 Employee objects
+        Employee[] employees = new Employee[10];
+
+        // Initialize employee data
+        employees[0] = new Employee(101, "John Doe", 25, 50000);
+        employees[1] = new Employee(102, "Jane Smith", 28, 55000);
+        employees[2] = new Employee(103, "Robert Brown", 30, 60000);
+        employees[3] = new Employee(104, "Alice Johnson", 27, 53000);
+        employees[4] = new Employee(105, "Michael Davis", 40, 75000);
+        employees[5] = new Employee(106, "Laura Wilson", 22, 45000);
+        employees[6] = new Employee(107, "David Miller", 35, 70000);
+        employees[7] = new Employee(108, "Emily Clark", 29, 58000);
+        employees[8] = new Employee(109, "James Taylor", 33, 67000);
+        employees[9] = new Employee(110, "Sophia Thomas", 26, 52000);
+
+        // Display employee information
+        System.out.println("Employee Details:");
+        for (int i = 0; i < employees.length; i++) {
+            employees[i].displayInfo();
+        }
+
+	}
+
+}

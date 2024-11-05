@@ -1,0 +1,30 @@
+package ControlStatement;
+
+public class Fibonacci {
+
+	public static void main(String[] args) {
+
+        int a = 0, b = 1;
+        System.out.print("Fibonacci sequence from 0 to 50: " + a + ", " + b);
+
+        int next = a + b;
+        while (next <= 50) {
+            System.out.print(", " + next);
+            a = b;
+            b = next;
+            next = a + b;
+        }
+	
+		
+//		int i;
+//		int sum=0;
+//		int num=100;
+//		for(i=1;i<=num;i++)
+//		{
+//			sum=sum+i;
+//		}
+//		System.out.println("Sum is:"+sum);
+		
+	}
+
+}

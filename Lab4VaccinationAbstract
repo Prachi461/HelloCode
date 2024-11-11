@@ -1,0 +1,91 @@
+//.Create abstract class vaccine.Create two variables age(int),nationality(String).
+//create 2 concrete methods firstDose() and secondDose(). 
+//Scenario 1:user can take the first dose if the user is Indian and age is 18.
+//After vaccination the user has to pay 250rs(which will be displayed on the console). 
+//Scenario 2: Users are eligible to take the second dose only after completing the first dose. 
+//Scenario 3: create abstract method boosterDose() in abstract class Vaccine.Create one implementation class 
+//vaccinationSuccessful, where implement boosterDose() method.
+//Create main class vaccination and invoke all methods accordingly. 
+//[Hint:Create constructor to initialize variables age and nationality,Use flow control(Ifelse) to check condition]
+
+
+
+package oopsDemo;
+
+//Abstract class Vaccine
+abstract class Vaccine {
+ // Variables for age and nationality
+ int age;
+ String nationality;
+ boolean isFirstDoseCompleted = false;
+
+ // Constructor to initialize age and nationality
+ public Vaccine(int age, String nationality) {
+     this.age = age;
+     this.nationality = nationality;
+ }
+
+ // Concrete method for first dose
+ public void firstDose() {
+     if (age >= 18 && nationality.equalsIgnoreCase("Indian")) {
+         System.out.println("First dose taken. Please pay 250 INR.");
+         isFirstDoseCompleted = true;
+     } else {
+         System.out.println("You are not eligible for the first dose.");
+     }
+ }
+
+ // Concrete method for second dose
+ public void secondDose() {
+     if (isFirstDoseCompleted) {
+         System.out.println("Second dose taken successfully.");
+     } else {
+         System.out.println("You are not eligible for the second dose. Please complete the first dose first.");
+     }
+ }
+
+ // Abstract method for booster dose
+ public abstract void boosterDose();
+}
+
+//Concrete subclass for successful vaccination
+class VaccinationSuccessful extends Vaccine {
+
+ // Constructor for initializing superclass variables
+ public VaccinationSuccessful(int age, String nationality) {
+     super(age, nationality);
+ }
+
+ // Implementation of boosterDose method
+ @Override
+ public void boosterDose() {
+     if (isFirstDoseCompleted) {
+         System.out.println("Booster dose taken successfully.");
+     } else {
+         System.out.println("You are not eligible for the booster dose. Please complete the first and second doses first.");
+     }
+ }
+}
+
+//Main class to test the vaccination process
+
+
+public class Lab4VaccinationAbstract {
+    public static void main(String[] args) {
+        // Creating a vaccination object with age and nationality
+        VaccinationSuccessful user = new VaccinationSuccessful(20, "Indian");
+
+        // Invoking the first dose method
+        System.out.println("Attempting first dose:");
+        user.firstDose();
+
+        // Invoking the second dose method
+        System.out.println("\nAttempting second dose:");
+        user.secondDose();
+
+        // Invoking the booster dose method
+        System.out.println("\nAttempting booster dose:");
+        user.boosterDose();
+    }
+
+}

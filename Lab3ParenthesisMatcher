@@ -1,0 +1,41 @@
+package ControlStatement;
+
+public class Lab3ParenthesisMatcher {
+
+	    // Method to find the matching closing parenthesis for a given opening position
+	    public static int findClosingParenthesis(String sentence, int openPos) {
+	        // Initialize a counter for nested parentheses
+	        int count = 1;
+
+	        // Start checking from the position right after the opening parenthesis
+	        for (int i = openPos + 1; i < sentence.length(); i++) {
+	            if (sentence.charAt(i) == '(') {
+	                count++;  // Increase count for each nested opening parenthesis
+	            } else if (sentence.charAt(i) == ')') {
+	                count--;  // Decrease count for each closing parenthesis
+
+	                // If count reaches zero, we found the matching closing parenthesis
+	                if (count == 0) {
+	                    return i;
+	                }
+	            }
+	        }
+
+	        // Return -1 if no matching closing parenthesis is found
+	        return -1;
+	    }
+
+	    public static void main(String[] args) {
+	        String sentence = "Sometimes (when I nest my parenthesis (also called parentheticals) too many times (like this (and this))) they get quite confusing.";
+	        int openPos = 10;
+
+	        int closingPos = findClosingParenthesis(sentence, openPos);
+
+	        if (closingPos != -1) {
+	            System.out.println("The closing parenthesis for the opening parenthesis at position " + openPos + " is at position " + closingPos + ".");
+	        } else {
+	            System.out.println("No matching closing parenthesis found.");
+	        }
+	    }
+	}
+

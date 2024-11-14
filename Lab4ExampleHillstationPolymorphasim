@@ -1,69 +1,97 @@
-//Write a Java program that demonstrates method overriding by creating a superclass called Animal and 
-//two subclasses called Dog and Cat. ● The Animal class should have a method called makeSound(),
-//which simply prints "The animal makes a sound." ● The Dog and Cat classes should override this method to print 
-//"TheCat/The dog meows/barks" respectively. ● The program should allow the user to create and display objects of 
-//each class.
+//Create one superclass HillStations and three subclasses Manali, Mussoorie, Gulmarg. 
+//Subclasses extend the superclass and override its location() and famousFor() method. 
+//i.call the location() and famousFor() method by the Parent class’, i.e. Hillstations class. 
+//As it refers to the base class object and the base class method overrides the superclass method; 
+//the base class method is invoked at runtime. ii.call the location() and famousFor() method by the all subclass’,
+//and print accordingly.
 
 
 package oopsDemo;
 
-import java.util.Scanner;
-
-//Superclass Animal
-class Animal1 {
- // Method to make a sound
- public void makeSound() {
-     System.out.println("The animal makes a sound.");
+//Superclass HillStations
+class HillStations {
+ // Method for location
+ public void location() {
+     System.out.println("Location of the Hill Station.");
+ }
+ 
+ // Method for famousFor
+ public void famousFor() {
+     System.out.println("Famous for something.");
  }
 }
 
-//Subclass Dog
-class Dog extends Animal1 {
+//Subclass Manali
+class Manali extends HillStations {
  @Override
- public void makeSound() {
-     System.out.println("The dog barks.");
+ public void location() {
+     System.out.println("Manali is located in Himachal Pradesh.");
+ }
+ 
+ @Override
+ public void famousFor() {
+     System.out.println("Manali is famous for adventure sports.");
  }
 }
 
-//Subclass Cat
-class Cat extends Animal1 {
+//Subclass Mussoorie
+class Mussoorie extends HillStations {
  @Override
- public void makeSound() {
-     System.out.println("The cat meows.");
+ public void location() {
+     System.out.println("Mussoorie is located in Uttarakhand.");
+ }
+ 
+ @Override
+ public void famousFor() {
+     System.out.println("Mussoorie is famous for its scenic beauty.");
+ }
+}
+
+//Subclass Gulmarg
+class Gulmarg extends HillStations {
+ @Override
+ public void location() {
+     System.out.println("Gulmarg is located in Jammu and Kashmir.");
+ }
+ 
+ @Override
+ public void famousFor() {
+     System.out.println("Gulmarg is famous for skiing and winter sports.");
  }
 }
 
 //Main class
 
-public class Lab4AnimalSoundDemoPolymorphasim {
+public class Lab4ExampleHillstationPolymorphasim {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Creating base class reference for subclasses
+        HillStations hillStation1 = new Manali();
+        HillStations hillStation2 = new Mussoorie();
+        HillStations hillStation3 = new Gulmarg();
         
-        System.out.println("Choose an animal to create:");
-        System.out.println("1. Dog");
-        System.out.println("2. Cat");
+        // Calling methods via HillStations reference (Polymorphism)
+        System.out.println("Calling by HillStations reference:");
+        hillStation1.location();
+        hillStation1.famousFor();
+        hillStation2.location();
+        hillStation2.famousFor();
+        hillStation3.location();
+        hillStation3.famousFor();
         
-        int choice = scanner.nextInt();
+        System.out.println("\nCalling by Subclass references:");
+
+        //Calling methods directly from each subclass
+        Manali manali = new Manali();
+        manali.location();
+        manali.famousFor();
         
-        // Reference of type Animal
-        Animal1 animal;
+        Mussoorie mussoorie = new Mussoorie();
+        mussoorie.location();
+        mussoorie.famousFor();
         
-        switch (choice) {
-            case 1:
-                animal = new Dog();
-                break;
-            case 2:
-                animal = new Cat();
-                break;
-            default:
-                System.out.println("Invalid choice, creating a generic Animal.");
-                animal = new Animal1();
-        }
-        
-        // Calling the overridden method
-        animal.makeSound();
-        
-        scanner.close();
+        Gulmarg gulmarg = new Gulmarg();
+        gulmarg.location();
+        gulmarg.famousFor();
     }
 
 }

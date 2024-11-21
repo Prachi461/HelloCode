@@ -1,0 +1,51 @@
+package collectionDemo;
+import java.util.TreeMap;
+import java.util.Map;
+
+public class Lab9TreeMapNavigationExample {
+	
+
+	    public static void main(String[] args) {
+	        // Create and populate the TreeMap
+	        TreeMap<String, Integer> treeMap = new TreeMap<>();
+	        treeMap.put("One", 1);
+	        treeMap.put("Two", 2);
+	        treeMap.put("Three", 3);
+
+	        // Method 1: Using for-each loop with entrySet()
+	        System.out.println("Using entrySet():");
+	        for (Map.Entry<String, Integer> entry : treeMap.entrySet()) {
+	            System.out.println(entry.getKey() + "=" + entry.getValue());
+	        }
+
+	        // Method 2: Using for-each loop with keySet()
+	        System.out.println("\nUsing keySet():");
+	        for (String key : treeMap.keySet()) {
+	            System.out.println(key + "=" + treeMap.get(key));
+	        }
+
+	        // Method 3: Using iterator on entrySet()
+	        System.out.println("\nUsing iterator on entrySet():");
+	        var entryIterator = treeMap.entrySet().iterator();
+	        while (entryIterator.hasNext()) {
+	            Map.Entry<String, Integer> entry = entryIterator.next();
+	            System.out.println(entry.getKey() + "=" + entry.getValue());
+	        }
+
+	        // Method 4: Using iterator on keySet()
+	        System.out.println("\nUsing iterator on keySet():");
+	        var keyIterator = treeMap.keySet().iterator();
+	        while (keyIterator.hasNext()) {
+	            String key = keyIterator.next();
+	            System.out.println(key + "=" + treeMap.get(key));
+	        }
+
+	        // Method 5: Using forEach() method 
+	        System.out.println("\nUsing forEach() method:");
+	        treeMap.forEach((key, value) -> System.out.println(key + "=" + value));
+
+	        // Method 6: Using descendingMap() for reverse order traversal
+	        System.out.println("\nUsing descendingMap():");
+	        treeMap.descendingMap().forEach((key, value) -> System.out.println(key + "=" + value));
+	    }
+	}

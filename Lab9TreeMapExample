@@ -1,0 +1,37 @@
+//Returns and removes the entry associated with the specified key from a TreeMap
+//Eg:TreeMap: {One=1, Three=3, Two=2}
+//Removed value = 2
+//Is the entry {Three=3} removed? True
+//Updated TreeMap: {One=1}
+
+package collectionDemo;
+import java.util.TreeMap;
+
+public class Lab9TreeMapExample {
+
+
+	    public static void main(String[] args) {
+	        // Create a TreeMap 
+	        TreeMap<String, Integer> treeMap = new TreeMap<>();
+	        treeMap.put("One", 1);
+	        treeMap.put("Three", 3);
+	        treeMap.put("Two", 2);
+
+	        // Print the original TreeMap
+	        System.out.println("TreeMap: " + treeMap);
+
+	        // Remove the entry with the key "Two"
+	        Integer removedValue = treeMap.remove("Two");
+	        System.out.println("Removed value = " + removedValue);
+
+	        // Check if the entry "Three=3" is removed
+	        boolean isEntryRemoved = !treeMap.containsKey("Three");
+	        System.out.println("Is the entry {Three=3} removed? " + isEntryRemoved);
+
+	        // Update TreeMap: removing "Three"
+	        treeMap.remove("Three");
+	        
+	        // Print the updated TreeMap
+	        System.out.println("Updated TreeMap: " + treeMap);
+	    }
+	}
